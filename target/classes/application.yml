@@ -1,7 +1,0 @@
-spring:
-  profiles:
-    active: dev
-
-application:
-  title: Spring-Tech
-  version: 1.0
