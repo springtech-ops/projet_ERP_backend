@@ -3,22 +3,20 @@ name: Deploy to Railway
 on:
   push:
     branches:
-      - main  # Déclenchement du déploiement après un push sur la branche "main"
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Install Railway CLI
-        run: |
-          curl -fsSL https://railway.app/install.sh | sh
-          export PATH="$HOME/.railway/bin:$PATH"
+        run: curl -sSL https://railway.app/install.sh | sh
 
-      - name: Deploy to Railway
-        env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+      - name: Deploy project
         run: railway up --service projet_ERP_backend
