@@ -46,3 +46,4 @@ spring:
 
 app:
   base-url: https://projet-erp-frontend.vercel.app
+  
