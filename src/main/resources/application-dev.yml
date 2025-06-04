@@ -6,7 +6,7 @@ server:
     path: /user/error
     whitelabel:
       enabled: false
-    address: 192.168.40.108
+    # address: 192.168.40.108
 
 spring:
   datasource:
